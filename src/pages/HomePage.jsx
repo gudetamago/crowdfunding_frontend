@@ -1,11 +1,12 @@
-import { allCampaigns } from "../data";
+import useCampaigns from "../hooks/use-campaigns";
 import CampaignCard from "../components/CampaignCard";
 
 function HomePage() {
+    const { campaigns } = useCampaigns();
 
   return (
       <div>
-          {allCampaigns.map((campaignData, key) => {
+          {campaigns.map((campaignData, key) => {
               return <CampaignCard key={key} campaignData={campaignData} />;
           })}
       </div>
