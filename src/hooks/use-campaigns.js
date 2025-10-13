@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import getCampaigns from "../api/get-campaigns.js";
+import getCampaigns from "../api/get-campaigns";
 
 export default function useCampaigns() {
   // Here we use the useState hook to create a state variable called fundraisers and a function to update it called setFundraisers. We initialize the state variable with an empty array.
