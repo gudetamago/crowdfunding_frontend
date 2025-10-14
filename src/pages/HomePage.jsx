@@ -1,5 +1,6 @@
 import useCampaigns from "../hooks/use-campaigns";
 import CampaignCard from "../components/CampaignCard";
+import "./HomePage.css";
 
 function HomePage() {
     const { campaigns } = useCampaigns();
