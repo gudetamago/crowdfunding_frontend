@@ -13,7 +13,7 @@ const router = createBrowserRouter([
       element: <NavBar />,
       children: [
           { path: "/", element: <HomePage /> },
-          { path: "/campaign", element: <CampaignPage /> },
+          { path: "/campaign/:id", element: <CampaignPage /> },
       ],
   },
 ]);
