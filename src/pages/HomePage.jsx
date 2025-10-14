@@ -6,7 +6,7 @@ function HomePage() {
     const { campaigns } = useCampaigns();
 
   return (
-      <div>
+      <div id="campaign-list">
           {campaigns.map((campaignData, key) => {
               return <CampaignCard key={key} campaignData={campaignData} />;
           })}
