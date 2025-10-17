@@ -3,15 +3,22 @@ import CampaignCard from "../components/CampaignCard";
 import "./HomePage.css";
 
 function HomePage() {
-    const { campaigns } = useCampaigns();
+    const { campaigns, isLoading, error  } = useCampaigns();
 
-  return (
-      <div id="campaign-list">
-          {campaigns.map((campaignData, key) => {
-              return <CampaignCard key={key} campaignData={campaignData} />;
-          })}
-      </div>
-  );
+    if (isLoading) {
+      return (<p>loading...</p>)
+    }
+    if (error) {
+      return (<p>{error.message}</p>)
+    }
+
+    return (
+        <div id="campaign-list">
+            {campaigns.map((campaignData, key) => {
+                return <CampaignCard key={key} campaignData={campaignData} />;
+            })}
+        </div>
+    );
 }
 
 export default HomePage;
