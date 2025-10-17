@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import HomePage from "./pages/HomePage.jsx";
 import CampaignPage from "./pages/CampaignPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import AboutPage from "./pages/AboutPage.jsx";
 
 import NavBar from "./components/NavBar.jsx";
 
@@ -13,7 +15,9 @@ const router = createBrowserRouter([
       element: <NavBar />,
       children: [
           { path: "/", element: <HomePage /> },
+          { path: "/login", element: <LoginPage /> },
           { path: "/campaign/:id", element: <CampaignPage /> },
+          { path: "/about", element: <AboutPage /> },
       ],
   },
 ]);
