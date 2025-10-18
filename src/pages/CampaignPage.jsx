@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import useCampaign from "../hooks/use-campaign";
+import PledgeForm from "../components/PledgeForm";
 
 function CampaignPage() {
 
@@ -16,8 +17,9 @@ function CampaignPage() {
   }
 
   return (
+    <>
       <div>
-          <h2>{campaign.title}</h2>
+        <h2>{campaign.title}</h2>
           <h3>Created at: {campaign.date_created}</h3>
           <h3>{`Status: ${campaign.is_open}`}</h3>
           <h3>Pledges:</h3>
@@ -31,6 +33,8 @@ function CampaignPage() {
               })}
           </ul>
       </div>
+      <PledgeForm campaignId={id} />
+    </>
   );  
 }
 
