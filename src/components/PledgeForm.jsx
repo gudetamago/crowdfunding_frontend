@@ -1,5 +1,5 @@
 import { useState } from "react";
-import postLogin from "../api/post-pledge.js";
+import postPledge from "../api/post-pledge.js";
 import { useNavigate } from "react-router-dom";
 
 function PledgeForm(props) {
@@ -23,8 +23,7 @@ function PledgeForm(props) {
         event.preventDefault();
         if (pledgeData.amount) {
 
-            console.log(pledgeData.campaign);
-            postLogin(pledgeData.amount,
+            postPledge(pledgeData.amount,
                 pledgeData.comment,
                 pledgeData.anonymous,
                 pledgeData.campaign)
