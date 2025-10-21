@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import useAuth from "../hooks/use-auth.js";
+import { useAuth } from "../hooks/use-auth.js";
 // import { useNavigate } from "react-router-dom";
 
 import "./NavBar.css";
