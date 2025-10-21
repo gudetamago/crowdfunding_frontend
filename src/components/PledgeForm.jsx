@@ -2,11 +2,12 @@ import { useState } from "react";
 import postPledge from "../api/post-pledge.js";
 import { useNavigate } from "react-router-dom";
 
+
 function PledgeForm(props) {
 
     // console.log(props.campaignId);
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const [amount, setAmount] = useState();
     const [comment, setComment] = useState("");
@@ -29,7 +30,7 @@ function PledgeForm(props) {
                 pledgeData.campaign)
                 .then((response) => {
                     console.log(response);
-                    // navigate("/");
+                    navigate(`/thank-you/${pledgeData.campaign}`);
                 })
                 .catch((error) => {
                     console.log(error);

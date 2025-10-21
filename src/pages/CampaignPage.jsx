@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 import useCampaign from "../hooks/use-campaign";
 import PledgeForm from "../components/PledgeForm";
+import { useAuth } from "../hooks/use-auth.js";
 
 function CampaignPage() {
 
+  const {auth, setAuth} = useAuth();
   // Here we use a hook that comes for free in react router called `useParams` to get the id from the URL so that we can pass it to our useCampaign hook.
   const { id } = useParams();
   // useCampaign returns three pieces of info, so we need to grab them all here
@@ -36,7 +38,7 @@ function CampaignPage() {
               })}
           </ul>
       </div>
-      {hasToken && campaign.is_open && <PledgeForm campaignId={id} />}
+      {auth.token && campaign.is_open && <PledgeForm campaignId={id} />}
     </>
   );  
 }

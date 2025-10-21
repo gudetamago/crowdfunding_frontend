@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage.jsx";
 import CampaignPage from "./pages/CampaignPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
+import PledgeThankYou from "./components/PledgeThankYou.jsx";
 
 import NavBar from "./components/NavBar.jsx";
 import { AuthProvider } from "./components/AuthProvider.jsx";
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
           { path: "/login", element: <LoginPage /> },
           { path: "/campaign/:id", element: <CampaignPage /> },
           { path: "/about", element: <AboutPage /> },
+          { path: "/thank-you/:id", element: <PledgeThankYou /> },
       ],
   },
 ]);
