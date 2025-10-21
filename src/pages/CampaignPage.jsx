@@ -36,7 +36,7 @@ function CampaignPage() {
               })}
           </ul>
       </div>
-      {hasToken && <PledgeForm campaignId={id} />}
+      {hasToken && campaign.is_open && <PledgeForm campaignId={id} />}
     </>
   );  
 }

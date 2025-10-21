@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function PledgeForm(props) {
 
-    console.log(props.campaignId);
+    // console.log(props.campaignId);
 
     // const navigate = useNavigate();
 
