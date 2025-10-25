@@ -21,12 +21,20 @@ function CampaignPage() {
       return (<p>{error.message}</p>)
   }
 
+  let displayedTitle;
+  if (auth.token) {
+    displayedTitle = campaign.title;
+  } else {
+    displayedTitle = campaign.alt_title;
+  }
+
   return (
     <>
       <div>
-        <h2>{campaign.title}</h2>
+        <h2>{displayedTitle}</h2>
           <h3>Created at: {campaign.date_created}</h3>
           <h3>{`Status: ${campaign.is_open}`}</h3>
+          <p>{campaign.description}</p>
           <h3>Pledges:</h3>
           <ul>
               {campaign.pledges.map((pledgeData, key) => {
