@@ -30,6 +30,18 @@ function NavBar() {
       <nav>
         <ul>
             <li><Link to="/">Home</Link></li>
+
+            {auth.token ? (
+                <li>
+                    <Link to="/new-campaign">Create Campaign</Link>
+                </li>
+              ) : (
+                <li>
+                    <Link to="/signup">Sign Up</Link>
+                </li>
+           )}
+
+
             <li><Link to="/about">About</Link></li>
 
             {auth.token ? (

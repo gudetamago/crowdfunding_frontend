@@ -7,6 +7,8 @@ import CampaignPage from "./pages/CampaignPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import PledgeThankYou from "./components/PledgeThankYou.jsx";
+import NewCampaignPage from "./pages/NewCampaignPage.jsx";
+import SignupPage from "./pages/SignupPage.jsx";
 
 import NavBar from "./components/NavBar.jsx";
 import { AuthProvider } from "./components/AuthProvider.jsx";
@@ -21,6 +23,8 @@ const router = createBrowserRouter([
           { path: "/campaign/:id", element: <CampaignPage /> },
           { path: "/about", element: <AboutPage /> },
           { path: "/thank-you/:id", element: <PledgeThankYou /> },
+          { path: "/new-campaign", element: <NewCampaignPage /> },
+          { path: "/signup", element: <SignupPage /> },
       ],
   },
 ]);
