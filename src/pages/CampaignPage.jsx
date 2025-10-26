@@ -11,6 +11,21 @@ function CampaignPage() {
   // useCampaign returns three pieces of info, so we need to grab them all here
   const { campaign, isLoading, error } = useCampaign(id);    
 
+  // Method to determine display name for pledges
+  const getDisplayName = (pledgeData) => {
+    if (!pledgeData.anonymous && pledgeData.nickname !== null && pledgeData.nickname !== undefined) {
+      return pledgeData.nickname;
+    }
+    return 'anonymous';
+  };
+
+  const getDisplayComment = (pledgeData) => {
+    if (pledgeData.comment !== null && pledgeData.comment !== undefined && pledgeData.comment.trim() !== "") {
+      return ` : ${pledgeData.comment}`;
+    }
+    return "";
+  };
+    
   if (isLoading) {
       return (<p>loading...</p>)
   }
@@ -37,7 +52,7 @@ function CampaignPage() {
               {campaign.pledges.map((pledgeData, key) => {
                   return (
                       <li key={key}>
-                          {pledgeData.amount} from {pledgeData.supporter}
+                          {pledgeData.amount} from {getDisplayName(pledgeData)}{getDisplayComment(pledgeData)}
                       </li>
                   );
               })}
