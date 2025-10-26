@@ -11,9 +11,6 @@ function CampaignPage() {
   // useCampaign returns three pieces of info, so we need to grab them all here
   const { campaign, isLoading, error } = useCampaign(id);    
 
-  // Check if user has token in localStorage
-  const hasToken = window.localStorage.getItem('token');
-
   if (isLoading) {
       return (<p>loading...</p>)
   }
