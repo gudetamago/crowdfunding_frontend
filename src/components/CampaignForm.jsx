@@ -3,7 +3,7 @@ import postCampaign from "../api/post-campaign.js";
 import { useNavigate } from "react-router-dom";
 
 
-function CampaignForm(props) {
+function CampaignForm() {
 
     // console.log(props.campaignId);
 
