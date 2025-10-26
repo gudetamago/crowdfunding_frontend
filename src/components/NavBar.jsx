@@ -16,6 +16,8 @@ function NavBar() {
   const handleLogout = () => {
       // Remove token from localStorage
       window.localStorage.removeItem('token');
+      window.localStorage.removeItem('username');
+      window.localStorage.removeItem('nickname');
       setAuth({ token: null });
 
       // Optional: Redirect to home page after logout
