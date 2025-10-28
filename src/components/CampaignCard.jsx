@@ -8,16 +8,19 @@ function CampaignCard(props) {
   const {auth, setAuth} = useAuth();
 
   let campaignTitle;
+  let campaignPicture;
   if (auth.token) {
     campaignTitle = campaignData.title;
+    campaignPicture = campaignData.image;
   } else {
     campaignTitle = campaignData.alt_title;
+    campaignPicture = campaignData.alt_image;
   }
 
   return (
     <div className="campaign-card">
       <Link to={campaignLink}>
-        <img src={campaignData.image} />
+        <img src={campaignPicture} />
         <h3>{campaignTitle}</h3>
         
       </Link>
