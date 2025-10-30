@@ -8,11 +8,11 @@ function ContactMe() {
                 <p>Have questions or want to get in touch? I'd love to hear from you!</p>
 
                 <div className="contact-form">
-                    <h3>Send me a message</h3>
+                    <h3>(Do not) Send me a message</h3>
                     <form>
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
-                            <input type="text" id="name" name="name" required />
+                            <input type="text" id="name" name="name" required/>
                         </div>
 
                         <div className="form-group">
@@ -22,7 +22,8 @@ function ContactMe() {
 
                         <div className="form-group">
                             <label htmlFor="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" required
+                            placeholder="This form isn't actually hooked to anything... for now."></textarea>
                         </div>
 
                         <button type="submit" className="submit-btn">Send Message</button>
