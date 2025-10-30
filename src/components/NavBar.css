@@ -1,26 +1,97 @@
-/* Add this to your existing NavBar.css */
 
+/* Color variables - declare colors in one place */
+:root {
+  --primary-color: #ffffff;    /* White - main color */
+  --secondary-color: #2563eb;  /* Blue - accent color */
+  --tertiary-color: #1e293b;   /* Dark gray - text color */
+}
+
+/* Navigation container */
+nav {
+  background-color: var(--primary-color);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Navigation list */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+nav li {
+  margin: 0;
+}
+
+/* Navigation links */
+nav a {
+  color: var(--tertiary-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+/* Hover and focus states */
+nav a:hover,
+nav a:focus {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+/* Active link styling (optional) */
+nav a.active {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Logout button specific styling */
 .logout-btn {
-    background: none;
-    border: none;
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: inherit;
-    font-family: inherit;
-    padding: 0;
-    margin: 0;
+  background: none;
+  border: none;
+  color: var(--tertiary-color);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: inline-block;
 }
 
-.logout-btn:hover {
-    text-decoration: underline;
+.logout-btn:hover,
+.logout-btn:focus {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  transform: translateY(-1px);
 }
 
-/* If you want it to look exactly like your other nav links */
-.nav-links .logout-btn {
-    color: #007bff; /* or whatever color your links are */
-}
+/* Responsive design */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem;
+  }
 
-.nav-links .logout-btn:hover {
-    color: #0056b3; /* or whatever hover color your links use */
+  nav ul {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  nav a,
+  .logout-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
 }

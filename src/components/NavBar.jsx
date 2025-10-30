@@ -48,9 +48,12 @@ function NavBar() {
 
             {auth.token ? (
                 <li>
-                    <Link to="/" onClick={handleLogout}>
+                    <button 
+                        className="logout-btn" 
+                        onClick={handleLogout}
+                    >
                         Log Out
-                    </Link>
+                    </button>
                 </li>
                 ) : (
                 <li>
