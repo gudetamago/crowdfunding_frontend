@@ -2,9 +2,9 @@ import { useState } from "react";
 import postLogin from "../api/post-login.js";
 import { useAuth } from "../hooks/use-auth.js";
 import { useNavigate } from "react-router-dom";
+import "./Forms.css";
 
 function LoginForm() {
-
     const navigate = useNavigate();
     const {auth, setAuth} = useAuth();
 
@@ -42,29 +42,38 @@ function LoginForm() {
         }
     }
 
-  return (
-    <form>
-      <div>
-        <label htmlFor="username">Username:</label>
-        <input
-            type="text"
-            id="username"
-            placeholder="Enter username"
-            onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            onChange={handleChange}
-        />
-      </div>
-      <button type="submit" onClick={handleSubmit}>Login</button>
-    </form>
-  );
+    return (
+        <div className="form-container">
+            <h2 className="form-title">Log In</h2>
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="username" className="form-label">Username:</label>
+                    <input
+                        type="text"
+                        id="username"
+                        className="form-input"
+                        placeholder="Enter username"
+                        value={credentials.username}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password" className="form-label">Password:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        className="form-input"
+                        placeholder="Enter password"
+                        value={credentials.password}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <button type="submit" className="form-button">Log In</button>
+            </form>
+        </div>
+    );
 }
 
 export default LoginForm;

@@ -1,52 +1,38 @@
 import { useState } from "react";
 import postCampaign from "../api/post-campaign.js";
 import { useNavigate } from "react-router-dom";
-
+import "./Forms.css";
 
 function CampaignForm() {
-
-    // console.log(props.campaignId);
-
     const navigate = useNavigate();
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [goal, setGoal] = useState();
-    const [image, setImage] = useState();
+    const [goal, setGoal] = useState("");
+    const [image, setImage] = useState("");
     const [is_open, setIsOpen] = useState(true);
     const [alt_title, setAltTitle] = useState("");
     const [alt_description, setAltDescription] = useState("");
     const [alt_image, setAltImage] = useState("");
-
-    // Unused campaign fields, included here to match the provided code structure
-    const [date_end, setDateEnd] = useState();
-
-
+    const [date_end, setDateEnd] = useState("");
 
     const campaignData = {
-      
-      title: title,
-      description: description,
-      goal: parseFloat(goal),
-      image: image,
-      is_open: is_open,
-      alt_title: alt_title,
-      alt_description: alt_description,
-      alt_image: alt_image,
-
-      // Unused campaign fields, included here to match the provided code structure
-      date_end: date_end,
-
-      
+        title: title,
+        description: description,
+        goal: parseFloat(goal),
+        image: image,
+        is_open: is_open,
+        alt_title: alt_title,
+        alt_description: alt_description,
+        alt_image: alt_image,
+        date_end: date_end,
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
-        // Create timestamp in the required format
+    
         const timestamp = new Date().toISOString();
 
-        // Create campaign data with the timestamp
         const submissionData = {
             ...campaignData,
             date_created: timestamp
@@ -68,7 +54,6 @@ function CampaignForm() {
                 submissionData.date_end
             )
             .then((response) => {
-                // console.log(response);
                 navigate(`/campaign/${response.id}`);
             })
             .catch((error) => {
@@ -77,83 +62,103 @@ function CampaignForm() {
         }
     }
 
-  return (
-    <form>
-      <div>
-        <label htmlFor="title">Title:</label>
-        <input
-            type="text"
-            id="title"
-            placeholder="Title"
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="description">Description:</label>
-        <input
-            type="text"
-            id="description"
-            placeholder="Insert description..."
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="goal">Goal:</label>
-        <input
-            type="number"
-            min="1"
-            id="goal"
-            value={goal}
-            placeholder="Enter goal amount"
-            onChange={(event) => setGoal(event.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="image">Image URL:</label>
-        <input
-            type="text"
-            id="image"
-            placeholder="Enter valid image URL"
-            value={image}
-            onChange={(event) => setImage(event.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="alt_title">Alternative Title:</label>
-        <input
-            type="text"
-            id="alt_title"
-            placeholder="Alternate Title"
-            value={alt_title}
-            onChange={(event) => setAltTitle(event.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="alt_description">Alternative Description:</label>
-        <input
-            type="text"
-            id="alt_description"
-            placeholder="Insert alternate description..."
-            value={alt_description}
-            onChange={(event) => setAltDescription(event.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="alt_image">Alternative Image URL:</label>
-        <input
-            type="text"
-            id="alt_image"
-            placeholder="Enter valid image URL"
-            value={alt_image}
-            onChange={(event) => setAltImage(event.target.value)}
-        />
-      </div>
-      
-      <button type="submit" onClick={handleSubmit}>Add Campaign</button>
-    </form>
-  );
+    return (
+        <div className="form-container">
+            <h2 className="form-title">Create New Campaign</h2>
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="title" className="form-label">Campaign Title:</label>
+                    <input
+                        type="text"
+                        id="title"
+                        className="form-input"
+                        placeholder="Enter campaign title"
+                        value={title}
+                        onChange={(event) => setTitle(event.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="description" className="form-label">Description:</label>
+                    <textarea
+                        id="description"
+                        className="form-textarea"
+                        placeholder="Describe your campaign in detail..."
+                        value={description}
+                        onChange={(event) => setDescription(event.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="goal" className="form-label">Funding Goal:</label>
+                    <input
+                        type="number"
+                        min="1"
+                        id="goal"
+                        className="form-input"
+                        value={goal}
+                        placeholder="Enter goal amount (e.g. 5000)"
+                        onChange={(event) => setGoal(event.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="image" className="form-label">Image URL:</label>
+                    <input
+                        type="url"
+                        id="image"
+                        className="form-input"
+                        placeholder="Enter valid image URL"
+                        value={image}
+                        onChange={(event) => setImage(event.target.value)}
+                        required
+                    />
+                </div>
+                
+                <h3 style={{ color: 'var(--secondary-color)', marginTop: '2rem', marginBottom: '1rem' }}>
+                    Public Version (for non-logged-in users)
+                </h3>
+                
+                <div className="form-group">
+                    <label htmlFor="alt_title" className="form-label">Public Title:</label>
+                    <input
+                        type="text"
+                        id="alt_title"
+                        className="form-input"
+                        placeholder="Public-friendly campaign title"
+                        value={alt_title}
+                        onChange={(event) => setAltTitle(event.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="alt_description" className="form-label">Public Description:</label>
+                    <textarea
+                        id="alt_description"
+                        className="form-textarea"
+                        placeholder="Public-friendly campaign description..."
+                        value={alt_description}
+                        onChange={(event) => setAltDescription(event.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="alt_image" className="form-label">Public Image URL:</label>
+                    <input
+                        type="url"
+                        id="alt_image"
+                        className="form-input"
+                        placeholder="Enter valid image URL for public version"
+                        value={alt_image}
+                        onChange={(event) => setAltImage(event.target.value)}
+                        required
+                    />
+                </div>
+
+                <button type="submit" className="form-button">Create Campaign</button>
+            </form>
+        </div>
+    );
 }
 
 export default CampaignForm;
