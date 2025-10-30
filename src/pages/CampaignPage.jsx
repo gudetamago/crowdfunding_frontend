@@ -11,6 +11,17 @@ function CampaignPage() {
   // useCampaign returns three pieces of info, so we need to grab them all here
   const { campaign, isLoading, error } = useCampaign(id);    
 
+  // Function to format date from ISO string to "DD Month YYYY"
+  const formatDate = (isoString) => {
+    const date = new Date(isoString);
+    const options = { 
+      day: 'numeric', 
+      month: 'long', 
+      year: 'numeric' 
+    };
+    return date.toLocaleDateString('en-GB', options);
+  };
+
   // Method to determine display name for pledges
   const getDisplayName = (pledgeData) => {
     if (!pledgeData.anonymous && pledgeData.nickname !== null && pledgeData.nickname !== undefined) {
@@ -25,7 +36,7 @@ function CampaignPage() {
     }
     return "";
   };
-    
+
   if (isLoading) {
       return (<p>loading...</p>)
   }
@@ -35,19 +46,22 @@ function CampaignPage() {
 
   let displayedTitle;
   let displayedDescription;
+  let displayedOwner;
   if (auth.token) {
     displayedTitle = campaign.title;
     displayedDescription = campaign.description;
+    displayedOwner = campaign.owner_nickname;
   } else {
     displayedTitle = campaign.alt_title;
     displayedDescription = campaign.alt_description;
+    displayedOwner = campaign.owner_alt_nickname;
   }
 
   return (
     <>
       <div>
         <h2>{displayedTitle}</h2>
-          <h3>Created at: {campaign.date_created}</h3>
+          <h3>Created at: {formatDate(campaign.date_created)}{displayedOwner ? ` by ${displayedOwner}` : ''}</h3>
           <h3>{`Status: ${campaign.is_open}`}</h3>
           <p>{displayedDescription}</p>
           <h3>Pledges:</h3>
