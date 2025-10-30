@@ -13,6 +13,8 @@ import SignupPage from "./pages/SignupPage.jsx";
 import NavBar from "./components/NavBar.jsx";
 import { AuthProvider } from "./components/AuthProvider.jsx";
 
+import "./pages/global.css"
+
 const router = createBrowserRouter([
   {
       path: "/",

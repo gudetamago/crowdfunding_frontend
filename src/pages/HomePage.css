@@ -1,6 +1,14 @@
 #campaign-list {
   display: grid;
-  grid-template-columns: 30% 30% 30%;
-  column-gap: 10px;
-  row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
+
+/* Alternative using the global grid classes */
+/* 
+#campaign-list {
+  @extend .grid;
+  @extend .grid-3;
+}
+*/
