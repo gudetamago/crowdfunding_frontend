@@ -33,6 +33,19 @@ function NavBar() {
     <div>
       <nav>
         <ul>
+          {/* <li className="nav-logo">
+            <Link to="/">
+              <img
+                src={
+                  auth.token
+                    ? "/img/campaigns/00_Logo_LairStarter_2.jpg"
+                    : "/img/campaigns/00_Logo_Yarnarchy.jpg"
+                }
+                alt="Site logo"
+              />
+            </Link>
+          </li> */}
+
           <li>
             <Link to="/">Home</Link>
           </li>
