@@ -1,38 +1,36 @@
 
-/* Color variables - declare colors in one place */
-:root {
-  --primary-color: #ffffff;    /* White - main color */
-  --secondary-color: #2563eb;  /* Blue - accent color */
-  --tertiary-color: #1e293b;   /* Dark gray - text color */
-}
-
 /* Navigation container */
 nav {
-  background-color: var(--primary-color);
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid #e2e8f0;
+  background-color: var(--theme-primary);
+  padding: 1rem;
+  border-bottom: 2px solid var(--theme-secondary);
 }
 
 /* Navigation list */
 nav ul {
-  list-style: none;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: left;
   margin: 0;
   padding: 0;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
 }
 
-nav li {
+nav ul li {
   margin: 0;
+}
+
+nav ul li a {
+  color: var(--theme-tertiary);
+  text-decoration: none;
+  font-weight: bold;
 }
 
 /* Navigation links */
 nav a {
-  color: var(--tertiary-color);
+  color: var(--theme-tertiary);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -43,39 +41,39 @@ nav a {
 /* Hover and focus states */
 nav a:hover,
 nav a:focus {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background-color: var(--theme-secondary);
+  color: var(--theme-primary);
   transform: translateY(-1px);
+}
+
+nav ul li a:hover {
+  color: var(--theme-secondary);
 }
 
 /* Active link styling (optional) */
 nav a.active {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background-color: var(--theme-secondary);
+  color: var(--theme-primary);
   font-weight: 600;
 }
 
 /* Logout button specific styling */
 .logout-btn {
-  background: none;
+  background-color: var(--theme-secondary);
+  color: var(--theme-primary);
   border: none;
-  color: var(--tertiary-color);
-  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
   font-family: inherit;
   font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
   transition: all 0.2s ease;
   display: inline-block;
 }
 
-.logout-btn:hover,
-.logout-btn:focus {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  transform: translateY(-1px);
+.logout-btn:hover {
+  background-color: var(--theme-tertiary);
 }
 
 /* Responsive design */
