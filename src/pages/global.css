@@ -1,14 +1,25 @@
 /* Color variables - declare colors in one place */
 :root {
-  --primary-color: #ffffff;    /* White - main color */
-  --secondary-color: #2563eb;  /* Blue - accent color */
-  --tertiary-color: #1e293b;   /* Dark gray - text color */
+  /* Original theme colors */
+  --primary-color: #262222;    /* White - main color */
+  --secondary-color: #ff00c8;  /* Pink - accent color */
+  --tertiary-color: #00ff1a;   /* Mint green - text color */
+
+  /* Alternative theme colors */
+  --alt-primary-color: #ffffff;    /* White - main color for alternative */
+  --alt-secondary-color: #e073c8;  /* Pink - accent color for alternative */
+  --alt-tertiary-color: #46ceb7;   /* Mint green - text color for alternative */
+
+  /* Dynamic theme variables */
+  --theme-primary: var(--primary-color);
+  --theme-secondary: var(--secondary-color);
+  --theme-tertiary: var(--tertiary-color);
 }
 
 /* Global body styling */
 body {
-  background-color: var(--primary-color);
-  color: var(--tertiary-color);
+  background-color: var(--theme-primary);
+  color: var(--theme-tertiary);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -27,7 +38,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--tertiary-color);
+  color: var(--theme-tertiary);
   margin-bottom: 1rem;
 }
 
@@ -39,19 +50,19 @@ h1 {
 h2 {
   font-size: 2rem;
   font-weight: 600;
-  border-bottom: 2px solid var(--secondary-color);
+  border-bottom: 2px solid var(--theme-secondary);
   padding-bottom: 0.5rem;
 }
 
 h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--secondary-color);
+  color: var(--theme-secondary);
 }
 
 p {
   margin-bottom: 1rem;
-  color: var(--tertiary-color);
+  color: var(--theme-tertiary);
 }
 
 /* Lists */
@@ -62,25 +73,25 @@ ul, ol {
 
 li {
   margin-bottom: 0.5rem;
-  color: var(--tertiary-color);
+  color: var(--theme-tertiary);
 }
 
 /* Links */
 a {
-  color: var(--secondary-color);
+  color: var(--theme-secondary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--tertiary-color);
+  color: var(--theme-tertiary);
   text-decoration: underline;
 }
 
 /* Buttons */
 button {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background-color: var(--theme-secondary);
+  color: var(--theme-primary);
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 6px;
@@ -91,7 +102,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--tertiary-color);
+  background-color: var(--theme-tertiary);
   transform: translateY(-1px);
 }
 
@@ -103,8 +114,8 @@ button:disabled {
 
 /* Form elements */
 input, textarea, select {
-  background-color: var(--primary-color);
-  color: var(--tertiary-color);
+  background-color: var(--theme-primary);
+  color: var(--theme-tertiary);
   border: 2px solid #e2e8f0;
   padding: 0.75rem;
   border-radius: 6px;
@@ -114,12 +125,12 @@ input, textarea, select {
 
 input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: var(--secondary-color);
+  border-color: var(--theme-secondary);
 }
 
 /* Cards and containers */
 .card {
-  background-color: var(--primary-color);
+  background-color: var(--theme-primary);
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 1.5rem;
@@ -150,7 +161,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .loading {
-  color: var(--secondary-color);
+  color: var(--theme-secondary);
 }
 
 .error {
