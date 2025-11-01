@@ -25,7 +25,11 @@ function CampaignPage() {
   // Method to determine display name for pledges
   const getDisplayName = (pledgeData) => {
     if (!pledgeData.anonymous && pledgeData.nickname !== null && pledgeData.nickname !== undefined) {
-      return pledgeData.nickname;
+      if (auth.token) {
+        return pledgeData.nickname;
+      } else {
+        return pledgeData.alt_nickname;
+      }
     }
     return 'anonymous';
   };
