@@ -1,7 +1,12 @@
+/* Reuse the shared form styles from Forms.css */
+@import "./Forms.css";
+
+/* Page / container layout */
 .contact-me {
-    background-color: #f8f9fa;
+    background-color: var(--theme-primary);
     padding: 60px 20px;
     margin-top: 40px;
+    color: var(--theme-tertiary);
 }
 
 .contact-container {
@@ -13,15 +18,16 @@
 .contact-me h2 {
     font-size: 2.5rem;
     margin-bottom: 16px;
-    color: #333;
+    color: var(--theme-tertiary);
 }
 
 .contact-me > div > p {
     font-size: 1.1rem;
-    color: #666;
+    color: var(--theme-tertiary);
     margin-bottom: 40px;
 }
 
+/* Grid for contact items */
 .contact-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -29,21 +35,24 @@
     margin-bottom: 50px;
 }
 
+/* Use the shared .card / form styles from Forms.css for visual treatments.
+   Keep only small layout-specific tweaks here. */
 .contact-item {
-    background: white;
+    /* rely on .card styles defined in global/Forms.css - keep minimal overrides */
     padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: var(--theme-primary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
 .contact-item h3 {
     margin-bottom: 10px;
-    color: #333;
+    color: var(--theme-tertiary);
     font-size: 1.2rem;
 }
 
 .contact-item a {
-    color: #007bff;
+    color: var(--theme-secondary);
     text-decoration: none;
     font-weight: 500;
 }
@@ -58,52 +67,99 @@
     justify-content: center;
 }
 
+/* contact form: keep structure, rely on shared form controls from Forms.css */
 .contact-form {
-    background: white;
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: left;
+    background: var(--theme-primary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
+/* Use shared form heading / label / input styles from Forms.css */
 .contact-form h3 {
     text-align: center;
     margin-bottom: 30px;
-    color: #333;
+    color: var(--theme-tertiary);
     font-size: 1.5rem;
 }
 
+/* Form group layout restored so spacing/labels/inputs look correct */
 .form-group {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+/* Support two-column layout for medium+ screens */
+@media (min-width: 700px) {
+    .form-row .form-group {
+        flex: 1;
+    }
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--theme-tertiary);
+    font-weight: 600;
 }
 
 .form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.form-group textarea,
+.form-group select {
+    background-color: var(--theme-primary);
+    color: var(--theme-tertiary);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    padding: 10px 12px;
+    border-radius: 6px;
     font-size: 1rem;
-    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    border-color: var(--theme-secondary);
+    box-shadow: 0 0 0 3px rgba(255, 0, 200, 0.06);
 }
 
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Inline helper / error message */
+.form-help {
+    font-size: 0.875rem;
+    color: rgba(70, 206, 183, 0.9);
+}
+
+.error-message {
+    font-size: 0.875rem;
+    color: #ff6b6b;
+}
+
+/* Form actions (submit button row) */
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+/* Submit button: prefer shared button classes defined in Forms.css.
+   If the markup uses .submit-btn, use theme vars to match global look. */
 .submit-btn {
-    background-color: #007bff;
-    color: white;
+    background-color: var(--theme-secondary);
+    color: var(--theme-primary);
     padding: 12px 30px;
     border: none;
     border-radius: 4px;
@@ -114,9 +170,10 @@
 }
 
 .submit-btn:hover {
-    background-color: #0056b3;
+    background-color: var(--theme-tertiary);
 }
 
+/* Responsive tweaks */
 @media (max-width: 768px) {
     .contact-me {
         padding: 40px 15px;
@@ -129,4 +186,13 @@
     .contact-me h2 {
         font-size: 2rem;
     }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
 }

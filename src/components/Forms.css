@@ -3,7 +3,7 @@
   max-width: 500px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: var(--primary-color);
+  background-color: var(--theme-primary);
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -11,7 +11,7 @@
 
 .form-title {
   text-align: center;
-  color: var(--tertiary-color);
+  color: var(--theme-tertiary);
   margin-bottom: 2rem;
   font-size: 1.75rem;
   font-weight: 600;
@@ -24,7 +24,7 @@
 .form-label {
   display: block;
   margin-bottom: 0.5rem;
-  color: var(--tertiary-color);
+  color: var(--theme-tertiary);
   font-weight: 500;
   font-size: 0.95rem;
 }
@@ -36,8 +36,8 @@
   border: 2px solid #e2e8f0;
   border-radius: 6px;
   font-size: 1rem;
-  color: var(--tertiary-color);
-  background-color: var(--primary-color);
+  color: var(--theme-tertiary);
+  background-color: var(--theme-primary);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   box-sizing: border-box;
 }
@@ -45,7 +45,7 @@
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--secondary-color);
+  border-color: var(--theme-secondary);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
@@ -68,8 +68,8 @@
 .form-button {
   width: 100%;
   padding: 0.875rem;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background-color: var(--theme-secondary);
+  color: var(--theme-primary);
   border: none;
   border-radius: 6px;
   font-size: 1rem;
@@ -80,7 +80,7 @@
 }
 
 .form-button:hover {
-  background-color: var(--tertiary-color);
+  background-color: var(--theme-tertiary);
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
