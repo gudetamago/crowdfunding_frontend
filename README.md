@@ -50,7 +50,7 @@ Where this applied, a screenshot for each version will be included.
     - Ability to create new user
     - Ability to edit username/email/password is not supported
 - About
-    - Placeholder page for any information about the site
+    - Content changes based on whether user is logged in
 
 #### Homepage
 This is the homepage shown when user is not logged in.
