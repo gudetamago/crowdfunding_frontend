@@ -7,6 +7,7 @@ import "./Forms.css";
 function LoginForm() {
     const navigate = useNavigate();
     const {auth, setAuth} = useAuth();
+    const [loginError, setLoginError] = useState(null);
 
     const [credentials, setCredentials] = useState({
         username: "",
@@ -19,6 +20,10 @@ function LoginForm() {
             ...prevCredentials,
             [id]: value,
         }));
+        // Clear error when user starts typing
+        if (loginError) {
+            setLoginError(null);
+        }
     };
 
     const handleSubmit = (event) => {
@@ -38,6 +43,7 @@ function LoginForm() {
                 })
                 .catch((error) => {
                     console.log(error);
+                    setLoginError(error.message || "Login failed. Please try again.");
                 });
         }
     }
@@ -45,6 +51,18 @@ function LoginForm() {
     return (
         <div className="form-container">
             <h2 className="form-title">Log In</h2>
+            {loginError && (
+                <div className="error-message" style={{
+                    color: 'red', 
+                    padding: '10px', 
+                    margin: '10px 0', 
+                    border: '1px solid red', 
+                    borderRadius: '4px',
+                    backgroundColor: '#ffe6e6'
+                }}>
+                    {loginError}
+                </div>
+            )}
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="username" className="form-label">Username:</label>
