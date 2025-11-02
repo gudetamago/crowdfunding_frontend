@@ -80,15 +80,18 @@ function CampaignPage() {
           <h3>{`${campaign.amount_pledged} pledged out of ${campaign.goal}`}</h3>
           <p>{displayedDescription}</p>
           <h3>Pledges:</h3>
-          <ul>
-              {campaign.pledges.map((pledgeData, key) => {
-                  return (
-                      <li key={key}>
-                          {pledgeData.amount} from {getDisplayName(pledgeData)}{getDisplayComment(pledgeData)}
-                      </li>
-                  );
-              })}
-          </ul>
+          <ul>{campaign.pledges && campaign.pledges.length > 0 ? (
+            campaign.pledges.map((pledgeData, key) => {
+              return (
+                <li key={key}>
+                {pledgeData.amount} from {getDisplayName(pledgeData)}{getDisplayComment(pledgeData)}
+                </li>
+                );
+              })
+            ) : (
+              <li>{noPledgeMessage}</li>
+            )}
+</ul>
       </div>
       {auth.token && campaign.is_open && <PledgeForm campaignId={id} />}
     </>
