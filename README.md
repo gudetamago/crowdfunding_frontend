@@ -87,6 +87,8 @@ New pledge form is shown only when the user is logged in, and only for active ca
 * amount
 * comment
 * anonymity
+
+Screenshot below only shows the Pledge Form itself.
 ![New Pledge Form]( ./img/readme/03_NewPledgeForm.png )
 
 #### Campaign Page
