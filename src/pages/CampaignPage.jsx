@@ -61,12 +61,23 @@ function CampaignPage() {
     displayedOwner = campaign.owner_alt_nickname;
   }
 
+  let displayedCampaignStatus;
+  if (campaign.is_open) {
+    displayedCampaignStatus = "Active";
+  } else {
+    displayedCampaignStatus = "Inactive";
+  }
+
+  let noPledgeMessage;
+  noPledgeMessage = "Be the first one to show your support!";
+
   return (
     <>
       <div>
         <h2>{displayedTitle}</h2>
           <h3>Created at: {formatDate(campaign.date_created)}{displayedOwner ? ` by ${displayedOwner}` : ''}</h3>
-          <h3>{`Status: ${campaign.is_open}`}</h3>
+          <h3>{`Status: ${displayedCampaignStatus}`}</h3>
+          <h3>{`${campaign.amount_pledged} pledged out of ${campaign.goal}`}</h3>
           <p>{displayedDescription}</p>
           <h3>Pledges:</h3>
           <ul>
