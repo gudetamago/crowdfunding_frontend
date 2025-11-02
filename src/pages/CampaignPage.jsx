@@ -78,7 +78,7 @@ function CampaignPage() {
           <h3>Created at: {formatDate(campaign.date_created)}{displayedOwner ? ` by ${displayedOwner}` : ''}</h3>
           <h3>{`Status: ${displayedCampaignStatus}`}</h3>
           <h3>{`${campaign.amount_pledged} pledged out of ${campaign.goal}`}</h3>
-          <p>{displayedDescription}</p>
+          <p style={{whiteSpace: 'pre-wrap'}}>{displayedDescription}</p>
           <h3>Pledges:</h3>
           <ul>{campaign.pledges && campaign.pledges.length > 0 ? (
             campaign.pledges.map((pledgeData, key) => {
