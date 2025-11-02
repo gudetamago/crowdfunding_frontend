@@ -67,6 +67,7 @@ This is the homepage shown when user is logged in.
 * last name
 * professional title
 * public-friendly alias
+
 All fields are mandatory.
 ![New User Sign Up form]( ./img/readme/01_SignUp.png )
 
@@ -79,6 +80,7 @@ To create a new campaign, you must be logged in.
 * public title (eg., the title that will be displayed to users who are not logged in)
 * public description (eg., the description that will be displayed to users who are not logged in)
 * public image (URL) (eg., the image that will be displayed to users who are not logged in)
+
 All fields are mandatory.
 ![New Campaign form]( ./img/readme/02_CreateCampaign.png )
 
@@ -99,11 +101,14 @@ The fields that are affected:
 * Campaign description
 * Displayed name of donor
 
-Campaign page for Campaign 1 when user is not logged in.
+Campaign page for Campaign #1 when user is not logged in.
 ![Campaign Page for Campaign 1 when user is not logged in.]( ./img/readme/04_CampaignPage_Logged_Out.png )
 
-Campaign page for Campaign 1 when user is logged in.
+Campaign page for Campaign #1 when user is logged in.
 ![Campaign Page for Campaign 1 when user is logged in.]( ./img/readme/04_CampaignPage_Logged_In.png )
+
+Campaign page for Campaign #3 when user is logged in but there is no pledge and Casmpaign is inactive.
+![Campaign Page for Campaign 3 when user is logged in but there is no pledge and Casmpaign is inactive.]( ./img/readme/04_CampaignPage_Logged_In_NoPledge.png )
 
 ### Additional Notes
 Ideas, extra concepts, etc. that were considered during the development phase.
